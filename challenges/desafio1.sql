@@ -15,6 +15,18 @@ CREATE TABLE
         plans_id INT NOT NULL,
         FOREIGN KEY (plans_id) REFERENCES plans(plans_id)
     ) engine = InnoDB;
+
+    CREATE TABLE artist (
+      artist_id INT PRIMARY KEY AUTO_INCREMENT, 
+      artist_name VARCHAR(100) NOT NULL,
+    );
+
+    CREATE TABLE disc (
+      disc_id INT PRIMARY KEY AUTO_INCREMENT,
+      disc_name VARCHAR(100) NOT NULL,
+      artist_id INT NOT NULL,
+      FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
+    );
 INSERT INTO SpotifyClone.tabela1 (coluna1, coluna2)
 VALUES
   ('exemplo de dados 1', 'exemplo de dados A'),
