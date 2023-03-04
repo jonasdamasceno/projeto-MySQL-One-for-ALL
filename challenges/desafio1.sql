@@ -1,18 +1,19 @@
 
 DROP DATABASE IF EXISTS SpotifyClone;
 CREATE DATABASE IF NOT EXISTS SpotifyClone;
-CREATE TABLE plans (
-    plans_id INT PRIMARY KEY AUTO_INTGREMENT,
-    plan_name VARCHAR(75) NOT NULL, 
-    price DECIMAL(5,2) NOT NULL,
-);
-CREATE TABLE users (
+USE SpotifyClone;
+  CREATE TABLE plans(
+    plans_id INT PRIMARY KEY AUTO_INCREMENT,
+    plan_name VARCHAR(100) NOT NULL,
+    price DECIMAL(5,2) NOT NULL
+  );
+  CREATE TABLE users (
         user_id INT PRIMARY KEY AUTO_INCREMENT,
         user_name VARCHAR(75) NOT NULL,
         user_age INT NOT NULL,
         plans_id INT NOT NULL,
         FOREIGN KEY (plans_id) REFERENCES plans(plans_id)
-    ) engine = InnoDB;
+    );
 
     CREATE TABLE artist (
       artist_id INT PRIMARY KEY AUTO_INCREMENT, 
@@ -48,10 +49,10 @@ CREATE TABLE users (
         FOREIGN KEY (user_id) REFERENCES users(user_id),
         FOREIGN KEY (music_id) REFERENCES music(music_id)
     );
-INSERT INTO plans (plan_name, price)
+    INSERT INTO plans (plan_name, price)
 VALUES ('gratuito', 0.00), ('universitário', 5.99), ('pessoal', 6.99), ('familiar', 7.99);
 
-INSERT INTO users (user_name, user_age, plans_id) VALUES 
+    INSERT INTO users (user_name, user_age, plans_id) VALUES 
     ('Barbara Liskov', 82, 1), 
     ('Robert Cecil Martin', 58, 1), 
     ('Ada Lovelace', 37, 4), 
