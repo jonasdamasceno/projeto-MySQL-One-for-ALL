@@ -1,4 +1,10 @@
-SELECT 
-  ( SELECT COUNT(*) FROM songs) AS "cancoes", 
-  ( SELECT COUNT(*) FROM artist) AS "artistas", 
-  ( SELECT COUNT(*) FROM music ) AS "albuns";
+SELECT (
+        SELECT COUNT(*)
+        FROM music
+    ) AS "cancoes", (
+        SELECT COUNT(*)
+        FROM artist
+    ) AS "artistas", (
+        SELECT COUNT(*)
+        FROM disc
+    ) AS "albuns";
