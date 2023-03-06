@@ -17,7 +17,7 @@ USE SpotifyClone;
 
     CREATE TABLE artist (
       artist_id INT PRIMARY KEY AUTO_INCREMENT, 
-      artist_name VARCHAR(100) NOT NULL,
+      artist_name VARCHAR(100) NOT NULL
     );
 
     CREATE TABLE disc (
@@ -39,7 +39,7 @@ USE SpotifyClone;
         artist_id INT NOT NULL,
         PRIMARY KEY (user_id, artist_id),
         FOREIGN KEY (user_id) REFERENCES users(user_id),
-        FOREIGN KEY (artist_id) REFERENCES artists(artist_id)
+        FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
     );
 
     CREATE TABLE payback_history (
